@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+    
+    
+    <div class="student-header">
+        <h1>Employee Directory</h1>
+        <input type="text" id="search-bar" placeholder="Search by name or email...">
+        <div class="header-actions-row-flex">
+            <button id="filter-btn">Filters</button>
+        </div>
+    </div>
+    <!-- Sort, Show, and Add Employee button in the same row -->
+    <div class="header-actions-row-flex">
+        <div class="header-actions">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by">
+                <option value="firstName">First Name</option>
+                <option value="role">Role</option>
+                <option value="department">Department</option>
+            </select>
+            <label for="page-size">Show
+                <select id="page-size">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            per page</label>
+        </div>
+        <button id="add-employee-btn" class="green-btn">Add Employee</button>
+    </div>
+
+    <!-- Filter Sidebar (hidden by default) -->
+    <div class="student-filter-sidebar hidden" id="filter-sidebar">
+        <h3>Filter Employees</h3>
+        <label>First Name: <input type="text" id="filter-firstname"></label><br>
+        <label>Department:
+            <select id="filter-department">
+                <option value="">All</option>
+                <option value="HR">HR</option>
+                <option value="Engineering">Engineering</option>
+                <option value="Finance">Finance</option>
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+            </select>
+        </label><br>
+        <label>Role:
+            <select id="filter-role">
+                <option value="">All</option>
+                <option value="Management">Management</option>
+                <option value="Developer">Developer</option>
+                <option value="Analyst">Analyst</option>
+                <option value="Lead">Lead</option>
+                <option value="Coordinator">Coordinator</option>
+                <option value="Designer">Designer</option>
+                <option value="Salesperson">Salesperson</option>
+            </select>
+        </label><br>
+        <button id="apply-filters-btn">Apply</button>
+        <button id="close-filter-btn">Close</button>
+    </div>
+
+
+    <div class="student-list" id="employee-list">
+       
+        <div class="student-card" data-email="${emp.email}">
+            <h3>Yadhagiri Ponnada</h3>
+            <p><strong>Email:</strong> yadhagiri@gmail.com</p>
+            <p><strong>Department:</strong> HR</p>
+            <p><strong>Role:</strong> Lead</p>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+        </div>
+      
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="student-controls">
+        <button id="prev-page-btn">Previous</button>
+        <span id="page-info">Page 1</span>
+        <button id="next-page-btn">Next</button>
+    </div>
+
+    <!-- Add/Edit Employee Modal (hidden by default) -->
+    <div id="employee-modal" class="hidden">
+        <div id="employee-modal-content">
+            <h2 id="modal-title">Add Employee</h2>
+            <form id="employee-form">
+                <!-- Removed hidden employee-id field -->
+                <label>First Name: <input type="text" id="first-name" required></label><br>
+                <label>Last Name: <input type="text" id="last-name" required></label><br>
+                <label>Email: <input type="email" id="email" required></label><br>
+                <label>Department:
+                    <select id="department" required>
+                        <option value="">Select</option>
+                        <option value="HR">HR</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Finance">Finance</option>
+                        <option value="IT">IT</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                    </select>
+                </label><br>
+                <label>Role:
+                    <select id="role" required>
+                        <option value="">Select</option>
+                        <option value="Management">Management</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Analyst">Analyst</option>
+                        <option value="Lead">Lead</option>
+                        <option value="Coordinator">Coordinator</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Salesperson">Salesperson</option>
+                    </select>
+                </label><br>
+                <div id="form-errors" class="hidden"></div>
+                <button type="submit" id="save-employee-btn">Save</button>
+                <button type="button" id="cancel-employee-btn">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

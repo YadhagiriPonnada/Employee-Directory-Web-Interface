@@ -1,0 +1,248 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .student-header {
+    background: #eee;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .student-header h1 {
+    flex: 1;
+    margin: 0;
+  }
+  
+  .student-header input {
+    margin: 0 10px;
+    padding: 5px;
+  }
+  
+  .student-header button {
+    margin: 0 5px;
+  }
+  
+  .student-controls {
+    padding: 10px;
+  }
+  
+  .student-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .student-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .student-card h3 {
+    margin-top: 0;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .student-filter-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #f8f8f8;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+  }
+  
+  #student-form-container {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Modal overlay and content */
+#employee-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+#employee-modal.hidden {
+  display: none;
+}
+#employee-modal-content {
+  background: #fff;
+  padding: 30px 20px 20px 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  max-width: 90vw;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  position: relative;
+}
+#employee-modal-content h2 {
+  margin-top: 0;
+}
+#employee-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+#employee-form input,
+#employee-form select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+#employee-form button {
+  margin-right: 8px;
+  margin-top: 10px;
+  padding: 7px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #1976d2;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+#employee-form button[type="button"] {
+  background: #aaa;
+}
+#employee-form button:hover {
+  background: #125ea2;
+}
+#employee-form button[type="button"]:hover {
+  background: #888;
+}
+#form-errors {
+  color: #d32f2f;
+  background: #ffeaea;
+  border: 1px solid #d32f2f;
+  border-radius: 4px;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+}
+#form-errors.hidden {
+  display: none;
+}
+.green-btn {
+  background: #43a047 !important;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 7px 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.green-btn:hover {
+  background: #2e7031 !important;
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0 15px 0;
+}
+
+.header-actions-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-left: 10px;
+}
+.header-actions-row .green-btn {
+  margin-left: auto;
+  margin-top: 0;
+}
+
+.header-actions-row-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-left: 10px;
+  margin-top: 0;
+}
+.header-actions-row-vertical .green-btn {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.header-actions-row-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 10px 0 15px 0;
+}
+.header-actions-row-flex .green-btn {
+  margin-left: auto;
+}
+
+/* Responsive modal and sidebar */
+@media (max-width: 600px) {
+  .student-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  #employee-modal-content {
+    min-width: 90vw;
+    padding: 15px 5vw;
+  }
+  .student-filter-sidebar {
+    width: 90vw;
+    padding: 10px;
+  }
+  .header-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .header-actions-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-left: 0;
+  }
+  .header-actions-row .green-btn {
+    margin-left: 0;
+  }
+  .header-actions-row-flex {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .header-actions-row-flex .green-btn {
+    margin-left: 0;
+  }
+}
+  
