@@ -1,8 +1,4 @@
-// Employee Directory App Logic
-// ============================
-// This script manages modal, form, filtering, sorting, searching, pagination, and in-memory data.
 
-// --- In-memory employee data (initialized from Freemarker if available) ---
 let employees = window.employees || [];
 let filteredEmployees = [...employees];
 let currentPage = 1;
